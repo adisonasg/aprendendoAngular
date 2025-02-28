@@ -1,11 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.scss'
+  template: `
+    <!--
+      <app-title *ngIf="destruir"></app-title>
+      <br>
+      <button (click)="destruirComponent()">Destruir componente</button>
+    -->
+    
+    <!--<app-diretivas-estruturais></app-diretivas-estruturais>-->
+    
+    <app-diretivas-atributos> </app-diretivas-atributos>
+    <router-outlet />
+  `,
 })
-export class AppComponent {
-  title = 'meu-primeiro-projeto';
+export class AppComponent implements OnInit{
+
+  public destruir: boolean = true;
+  
+  constructor() { 
+  }
+  
+  ngOnInit(): void {  
+
+  }
+   
 }
