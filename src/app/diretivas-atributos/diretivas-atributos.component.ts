@@ -15,6 +15,9 @@ export class DiretivasAtributosComponent implements OnInit, OnDestroy {
   public backgroundColor: string = "red";
 
   public nome: string = "";
+  public list: Array<{nome: string }> = [{ nome: "Dener Troquate"}];
+
+  public date: Date = new Date();
 
   constructor(private cdr: ChangeDetectorRef, private zone: NgZone) {}
 
@@ -48,4 +51,11 @@ export class DiretivasAtributosComponent implements OnInit, OnDestroy {
       clearInterval(this.intervalId);
     }
   }
+
+  public salvar() {
+    this.list.push({ nome: this.nome });
+    this.nome = "";
+  }
+
+
 }
